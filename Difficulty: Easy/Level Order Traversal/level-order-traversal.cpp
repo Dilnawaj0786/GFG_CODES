@@ -22,11 +22,11 @@ class Solution {
         queue<Node*> q;
         if(root != NULL) q.push(root);
         while(q.size() > 0){
-            Node* front = q.front();
+            Node* f = q.front();
+            if(f->left != NULL) q.push(f->left);
+            if(f->right != NULL) q.push(f->right);
             q.pop();
-            ans.push_back(front->data);
-            if(front->left != NULL) q.push(front->left);
-            if(front->right != NULL) q.push(front->right);
+            ans.push_back(f->data);
         }
         return ans;
         
